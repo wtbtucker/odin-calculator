@@ -1,25 +1,30 @@
 const display_text = document.querySelector('.display');
-
+const digits = document.querySelectorAll('.digit');
+const operator_buttons = document.querySelectorAll('.operator');
 const clear_button = document.getElementById('clear');
+const equals_button = document.getElementById('equals');
+
 clear_button.addEventListener('click', function() {
     display_text.textContent = '';
 });
 
-const digits = document.querySelectorAll('.digit');
-digits.forEach(button => button.addEventListener('click', () => {
-    display_text.textContent += e.target.innerText;
+
+digits.forEach(button => button.addEventListener('click', Event => {
+    display_text.textContent += Event.target.innerText;
 }));
 
-// display the plus?
-// wait for user to type more numbers
-    // would need to remember first operand and the plus operator
 
-const plus_button = document.getElementById('plus');
-plus_button.addEventListener('click', () => {
-    operand_one = Number(display_text.textContent);
-    display_text.textContent = '';
-    return operand_one;
+operator_buttons.forEach(operator_button => {operator_button.addEventListener('click', Event => {
+    display_text.textContent += ` ${Event.target.innerText} `;
 })
+});
+
+equals_button.addEventListener('click', () => {
+    let display_expression = display_text.textContent;
+    let expression_list = display_expression.split(' ');
+    console.table(expression_list);
+})
+
 
 
 function add(a,b) {
