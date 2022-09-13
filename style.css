@@ -7,6 +7,8 @@
 .container {
     display: flex;
     flex-direction: column;
+    background-color: navy;
+    width: 300px;
 }
 
 .first_row,
@@ -15,18 +17,35 @@
 .fourth_row {
     display: flex;
     justify-content: space-evenly;
+    flex: 1 1 auto;
 }
 
 .container * button {
-    flex: 1 1 0;
+    flex: 1 1 auto;
+    margin: 4px;
+    border-radius: 4px;
+    height: 37px;
+    width: 50px;
 }
 
 .display {
     height: 40px;
     flex: 1 1 auto;
+    background-color: white;
+    margin: 12px 4px;
 }
 
 div {
     border-style: solid;
     border-width: 1px;
+}
+
+.digit {
+    background-color: lightgray;
+}
+
+.operator,
+#equals,
+#clear {
+    background-color: grey;
 }
