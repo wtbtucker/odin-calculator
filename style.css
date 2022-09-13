@@ -1,6 +1,26 @@
+/* TODO: set an even button size */
+/* arrange the buttons in rows and columns */
+
+* {
+    font-size: 32px;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
 .container {
     display: flex;
     flex-direction: column;
+}
+
+.first_row,
+.second_row,
+.third_row,
+.fourth_row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container * button {
+    flex: 1 1 0;
 }
 
 div {
