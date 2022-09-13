@@ -16,13 +16,12 @@ digits.forEach(button => button.addEventListener('click', Event => {
 
 operator_buttons.forEach(operator_button => {operator_button.addEventListener('click', Event => {
     display_text.textContent += ` ${Event.target.innerText} `;
-})
-});
+})});
 
 equals_button.addEventListener('click', () => {
     let display_expression = display_text.textContent;
     let expression_list = display_expression.split(' ');
-    console.table(expression_list);
+    display_text.textContent = operate(expression_list)
 })
 
 
@@ -43,7 +42,7 @@ function divide(a,b) {
     return Number(a) / Number(b);
 }
 
-function operate(a, b, operator) {
+function operate([a, operator, b]) {
     let result = 0;
     switch(true) {
         case (operator === '+'):
