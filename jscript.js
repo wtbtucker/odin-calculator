@@ -29,8 +29,9 @@ equals_button.addEventListener('click', () => {
 
 function calculate_display(string) {
     let expression_list = string.split(' ');
-    let display = operate(expression_list).toFixed(5);
-    return display;
+    let display = operate(expression_list);
+    rounded_display = Math.round(display * 100000) / 100000;
+    return rounded_display;
 }
 
 function add(a,b) {
