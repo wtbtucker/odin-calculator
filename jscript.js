@@ -29,7 +29,7 @@ equals_button.addEventListener('click', () => {
 
 function calculate_display(string) {
     let expression_list = string.split(' ');
-    let display = operate(expression_list);
+    let display = operate(expression_list).toFixed(5);
     return display;
 }
 
