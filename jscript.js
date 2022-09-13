@@ -1,5 +1,11 @@
-const buttons = document.querySelectorAll('button');
-buttons.forEach(button => button.addEventListener('click', function(e) {
-    let display_text = document.querySelector('.display');
+const display_text = document.querySelector('.display');
+
+const clear_button = document.getElementById('clear');
+clear_button.addEventListener('click', function() {
+    display_text.textContent = '';
+});
+
+const digits = document.querySelectorAll('.digit');
+digits.forEach(button => button.addEventListener('click', function(e) {
     display_text.textContent += e.target.innerText;
 }));
