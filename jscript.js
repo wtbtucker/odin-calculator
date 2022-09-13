@@ -15,16 +15,22 @@ digits.forEach(button => button.addEventListener('click', Event => {
 
 
 operator_buttons.forEach(operator_button => {operator_button.addEventListener('click', Event => {
+    // check if already an operator
+    if (display_text.textContent.includes('+') || display_text.textContent.includes('-') || display_text.textContent.includes('*') || display_text.textContent.includes('/')) {
+        display_text.textContent = calculate_display(display_text.textContent);
+    }
     display_text.textContent += ` ${Event.target.innerText} `;
 })});
 
 equals_button.addEventListener('click', () => {
-    let display_expression = display_text.textContent;
-    let expression_list = display_expression.split(' ');
-    display_text.textContent = operate(expression_list)
+    display_text.textContent = calculate_display(display_text.textContent);
 })
 
-
+function calculate_display(string) {
+    let expression_list = string.split(' ');
+    let display = operate(expression_list);
+    return display;
+}
 
 function add(a,b) {
     return Number(a) + Number(b);
@@ -59,5 +65,4 @@ function operate([a, operator, b]) {
             return result;
     }
 }
-// wait for user to type more numbers
 
