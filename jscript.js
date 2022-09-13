@@ -8,11 +8,9 @@ clear_button.addEventListener('click', function() {
     display_text.textContent = '';
 });
 
-
 digits.forEach(button => button.addEventListener('click', Event => {
     display_text.textContent += Event.target.innerText;
 }));
-
 
 operator_buttons.forEach(operator_button => {operator_button.addEventListener('click', Event => {
     // check if already an operator
@@ -25,6 +23,9 @@ operator_buttons.forEach(operator_button => {operator_button.addEventListener('c
 equals_button.addEventListener('click', () => {
     display_text.textContent = calculate_display(display_text.textContent);
 })
+
+// TODO: round long floats
+// TODO: add error message if attempt to divide by 0
 
 function calculate_display(string) {
     let expression_list = string.split(' ');
@@ -45,6 +46,9 @@ function multiply(a,b) {
 }
 
 function divide(a,b) {
+    if (b==0) {
+        return "Stop it"
+    }
     return Number(a) / Number(b);
 }
 
